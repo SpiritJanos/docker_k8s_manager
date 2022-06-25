@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<GridPane prefHeight="562.0" prefWidth="1146.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="sample.controller.docker.DockerContainerController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="183.0" minHeight="0.0" prefHeight="66.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="472.0" minHeight="10.0" prefHeight="434.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <children>
+        <GridPane prefHeight="44.0" prefWidth="1076.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="553.0" minWidth="10.0" prefWidth="429.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="718.0" minWidth="10.0" prefWidth="687.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Text text="Docker Containers" wrappingWidth="496.5830078125">
+                    <font>
+                        <Font size="23.0"/>
+                    </font>
+                </Text>
+                <HBox alignment="CENTER_RIGHT" prefHeight="8.0" prefWidth="538.0" spacing="15.0"
+                      GridPane.columnIndex="1" GridPane.valignment="CENTER">
+                    <children>
+                        <Button fx:id="inspectContainer" onAction="#inspectContainerLogs" mnemonicParsing="false"
+                                prefHeight="19.0" prefWidth="119.0" text="Inspect Container"/>
+                        <Button fx:id="startStopButton" layoutX="148.0" layoutY="20.0" mnemonicParsing="false"
+                                onAction="#startStopContainers" prefHeight="19.0" prefWidth="119.0"
+                                text="Start/Stop container"/>
+                        <Button fx:id="deleteButton" layoutX="238.0" layoutY="20.0" mnemonicParsing="false"
+                                onAction="#deleteContainers" prefHeight="19.0" prefWidth="119.0"
+                                text="Delete container"/>
+                        <Button fx:id="createButton" mnemonicParsing="false" onAction="#openContainerCreationWindow"
+                                prefHeight="19.0" prefWidth="119.0" text="Create container"/>
+                        <CheckBox fx:id="listAll" mnemonicParsing="false" prefHeight="17.0" prefWidth="132.0"
+                                  text="Show all containers"/>
+                    </children>
+                </HBox>
+            </children>
+            <GridPane.margin>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+            </GridPane.margin>
+        </GridPane>
+        <TableView fx:id="dockerContainers" prefHeight="428.0" prefWidth="1062.0" GridPane.rowIndex="1">
+            <columns>
+                <TableColumn fx:id="names" prefWidth="180.0" resizable="false" text="NAMES"/>
+                <TableColumn fx:id="containerId" prefWidth="158.0" text="CONTAINER ID"/>
+                <TableColumn fx:id="image" prefWidth="120.0" text="IMAGE"/>
+                <TableColumn fx:id="command" prefWidth="156.0" text="COMMAND"/>
+                <TableColumn fx:id="created" prefWidth="159.0" text="CREATED"/>
+                <TableColumn fx:id="ports" prefWidth="185.0" text="PORTS"/>
+                <TableColumn fx:id="status" prefWidth="167.0" text="STATUS"/>
+            </columns>
+            <GridPane.margin>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+            </GridPane.margin>
+        </TableView>
+        <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+            <children>
+                <Button fx:id="returnToMenu" onAction="#goBackToMenu" prefHeight="25.0" prefWidth="113.0"
+                        text="Go back">
+                    <HBox.margin>
+                        <Insets bottom="15.0" right="15.0"/>
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </children>
+</GridPane>

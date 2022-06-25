@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<GridPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="sample.controller.k8s.K8sPodInspectionViewController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <children>
+        <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                  prefHeight="562.0" prefWidth="1146.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="952.0" minWidth="10.0" prefWidth="354.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="996.0" minWidth="10.0" prefWidth="792.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="374.0" minHeight="10.0" prefHeight="374.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="182.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Label fx:id="podName" text="Label">
+                    <font>
+                        <Font size="23.0"/>
+                    </font>
+                    <GridPane.margin>
+                        <Insets left="15.0"/>
+                    </GridPane.margin>
+                </Label>
+                <TextArea fx:id="podLogs" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1"
+                          GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets left="15.0" right="15.0"/>
+                    </GridPane.margin>
+                </TextArea>
+                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#goBack" text="Cancel"
+                        GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                    <GridPane.margin>
+                        <Insets right="15.0"/>
+                    </GridPane.margin>
+                </Button>
+                <GridPane GridPane.rowIndex="1">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.0" minWidth="10.0" prefWidth="137.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.0" minWidth="10.0" prefWidth="187.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Label text="Namespace:" wrapText="true" GridPane.rowIndex="1"/>
+                        <Label text="Name:"/>
+                        <Label text="Status:" GridPane.rowIndex="2"/>
+                        <Label text="Node:" GridPane.rowIndex="5"/>
+                        <Label text="Started:" GridPane.rowIndex="3"/>
+                        <Label text="Image:" GridPane.rowIndex="6"/>
+                        <Label layoutX="10.0" layoutY="189.0" text="IP Address:" GridPane.rowIndex="7"/>
+                        <Label layoutX="10.0" layoutY="223.0" text="Port:" GridPane.rowIndex="8"/>
+                        <Label fx:id="name" layoutX="10.0" layoutY="59.0" text="Label" wrapText="true"
+                               GridPane.columnIndex="1"/>
+                        <Label fx:id="namespace" layoutX="172.0" layoutY="21.0" text="Label" wrapText="true"
+                               GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Label fx:id="status" layoutX="172.0" layoutY="59.0" text="Label" wrapText="true"
+                               GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <Label fx:id="node" layoutX="172.0" layoutY="97.0" text="Label" wrapText="true"
+                               GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                        <Label fx:id="startTime" layoutX="172.0" layoutY="135.0" text="Label" wrapText="true"
+                               GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <Label fx:id="image" layoutX="172.0" layoutY="172.0" text="Label" wrapText="true"
+                               GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+                        <Label fx:id="ipAddress" layoutX="172.0" layoutY="209.0" text="Label" wrapText="true"
+                               GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+                        <Label fx:id="port" layoutX="172.0" layoutY="246.0" text="Label" wrapText="true"
+                               GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+                        <Label layoutX="10.0" layoutY="314.0" text="Host port:" GridPane.rowIndex="9"/>
+                        <Label fx:id="hostPort" layoutX="147.0" layoutY="314.0" text="Label" wrapText="true"
+                               GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+                        <Label text="Created at:" GridPane.rowIndex="4"/>
+                        <Label fx:id="createdAt" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                    </children>
+                    <GridPane.margin>
+                        <Insets left="15.0" right="15.0"/>
+                    </GridPane.margin>
+                </GridPane>
+                <Button fx:id="openTerminal" mnemonicParsing="false" onAction="#execPod" text="Open Terminal..."
+                        GridPane.rowIndex="2">
+                    <GridPane.margin>
+                        <Insets left="15.0"/>
+                    </GridPane.margin>
+                </Button>
+            </children>
+        </GridPane>
+    </children>
+</GridPane>
