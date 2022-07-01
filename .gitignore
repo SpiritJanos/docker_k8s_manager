@@ -1,6 +1,7 @@
 HELP.md
 /target/
 /out/
+/shade/
 .DS_Store
 !.mvn/wrapper/maven-wrapper.jar
 
