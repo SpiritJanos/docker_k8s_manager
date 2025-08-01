@@ -1,5 +1,10 @@
 package sample.model.docker;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class DockerContainerGeneral extends DockerContainer {
     private String command;
     private String ports;
@@ -12,27 +17,4 @@ public class DockerContainerGeneral extends DockerContainer {
         this.containerName = containerName;
     }
 
-    public String getCommand() {
-        return command;
-    }
-
-    public void setCommand(String command) {
-        this.command = command;
-    }
-
-    public String getPorts() {
-        return ports;
-    }
-
-    public void setPorts(String ports) {
-        this.ports = ports;
-    }
-
-    public String getContainerName() {
-        return containerName;
-    }
-
-    public void setContainerName(String containerName) {
-        this.containerName = containerName;
-    }
 }

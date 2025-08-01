@@ -1,5 +1,10 @@
 package sample.model.k8s;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class PodGeneral extends Pods {
 
     private Integer restarts;
@@ -17,43 +22,4 @@ public class PodGeneral extends Pods {
         this.age = age;
     }
 
-    public Integer getRestarts() {
-        return restarts;
-    }
-
-    public void setRestarts(Integer restarts) {
-        this.restarts = restarts;
-    }
-
-    public String getReadiness() {
-        return readiness;
-    }
-
-    public void setReadiness(String readiness) {
-        this.readiness = readiness;
-    }
-
-    public String getNominatedNode() {
-        return nominatedNode;
-    }
-
-    public void setNominatedNode(String nominatedNode) {
-        this.nominatedNode = nominatedNode;
-    }
-
-    public String getReadinessGates() {
-        return readinessGates;
-    }
-
-    public void setReadinessGates(String readinessGates) {
-        this.readinessGates = readinessGates;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
 }

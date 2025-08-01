@@ -1,5 +1,10 @@
 package sample.model.docker;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class DockerImage {
 
     private String repository;
@@ -16,43 +21,4 @@ public class DockerImage {
         this.size = size;
     }
 
-    public String getRepository() {
-        return repository;
-    }
-
-    public void setRepository(String repository) {
-        this.repository = repository;
-    }
-
-    public String getTag() {
-        return tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
-    public String getImageId() {
-        return imageId;
-    }
-
-    public void setImageId(String imageId) {
-        this.imageId = imageId;
-    }
-
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
 }

@@ -1,5 +1,10 @@
 package sample.model.k8s;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class Namespace {
     private String name;
     private String status;
@@ -11,27 +16,4 @@ public class Namespace {
         this.age = age;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
 }
