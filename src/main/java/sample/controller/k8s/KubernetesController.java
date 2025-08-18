@@ -1,10 +1,13 @@
 package sample.controller.k8s;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import io.fabric8.kubernetes.api.model.Pod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import sample.service.KubernetesClientService;
+
+import java.util.List;
 
 @RestController
 public class KubernetesController {
@@ -17,8 +20,8 @@ public class KubernetesController {
     }
 
     @RequestMapping("/pods/{namespace}")
-    private String listPods(@PathVariable String namespace){
-        return clientService.listPods(namespace).toString();
+    private ResponseEntity<List<Pod>> listPods(@PathVariable String namespace){
+        return ResponseEntity.ok(clientService.listPods(namespace).getItems());
     }
 
     @RequestMapping("/namespace/{name}/create")
@@ -39,5 +42,10 @@ public class KubernetesController {
     @RequestMapping("/pod/delete/{namespace}/{name}")
     private void deletePodInNamespace(@PathVariable String namespace, @PathVariable String name){
         clientService.deletePod(namespace, name);
+    }
+
+    @RequestMapping("/pod/{namespace}/{name}/logs")
+    private String showPodLogsInNamespace(@PathVariable String namespace, @PathVariable String name){
+        return clientService.showPodLogs(namespace, name);
     }
 }
