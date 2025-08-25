@@ -48,4 +48,9 @@ public class KubernetesController {
     private String showPodLogsInNamespace(@PathVariable String namespace, @PathVariable String name){
         return clientService.showPodLogs(namespace, name);
     }
+
+    @RequestMapping("/pod/{namespace}/{name}/exec/{command}")
+    private String execCommandInPod(@PathVariable String namespace, @PathVariable String name, @PathVariable String command){
+        return clientService.execCommandInPod(namespace, name, command.split(" "));
+    }
 }
